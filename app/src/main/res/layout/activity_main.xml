@@ -19,8 +19,8 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/toolbarColor"
-            android:id="@+id/toolbar"
+            android:background="@color/colorPrimary"
+            android:id="@+id/settingsToolbar"
             app:popupTheme="@style/Theme.AppCompat.Light"
             android:elevation="4dp"/>
         <FrameLayout
