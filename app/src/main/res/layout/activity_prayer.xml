@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/toolbarColor"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/Theme.AppCompat.Light" />
+
+        <Button
+            android:id="@+id/zeroButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/zeroButton" />
+
+        <ScrollView
+            android:id="@+id/scrollSure"
+            android:layout_width="400dp"
+            android:layout_height="500dp"
+            android:layout_below="@id/zeroButton"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/counterTextColor">
+
+            <TextView
+                android:id="@+id/sureItself"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/textColor" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/scrollSure"
+            android:textSize="40sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="?attr/textColor" />
+        <Button
+            android:id="@+id/counterButton"
+            android:text="+1"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:layout_below="@+id/number"
+            android:layout_centerHorizontal="true"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_plus"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            />
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

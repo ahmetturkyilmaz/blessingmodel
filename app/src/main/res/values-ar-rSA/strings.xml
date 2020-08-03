@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">blessing-model</string>
+    <string name="search">بحث</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="share">شارك</string>
+    <string name="prayers">زمن</string>
+    <string name="communicate">"نقل "</string>
+    <string name="blessings">دعاء</string>
+    <string name="settings">الإعدادات</string>
+    <string name="messages_header">"الرسائل "</string>
+    <string name="language_title">لغة</string>
+    <string name="language_settings">"اعدادات اللغة "</string>
+    <string name="view_settings">"عرض الإعدادات "</string>
+    <string name="dark_mode_setting">"الوضع المظلم "</string>
+</resources>

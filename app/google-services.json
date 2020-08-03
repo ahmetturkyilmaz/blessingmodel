@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "342544324249",
+    "firebase_url": "https://huzurdb.firebaseio.com",
+    "project_id": "huzurdb",
+    "storage_bucket": "huzurdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342544324249:android:990f0fdd8a86134d260a08",
+        "android_client_info": {
+          "package_name": "com.example.blessing_model"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342544324249-o7kjsta37k4akbguh3oarsbrpmhlnvfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvzZx0Je9yDWEvX0yvmNdHsuXI-8G-FVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342544324249-o7kjsta37k4akbguh3oarsbrpmhlnvfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

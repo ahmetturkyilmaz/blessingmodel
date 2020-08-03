@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">blessing-model</string>
+    <string name="search">Ara</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="prayers">Sureler</string>
+    <string name="share">Paylaş</string>
+    <string name="communicate">İletişim</string>
+    <string name="language_title">Dil</string>
+    <string name="language_settings">Dil Ayarları</string>
+    <string name="settings">Ayarlar</string>
+    <string name="blessings">Dualar</string>
+    <string name="dark_mode_setting">Siyah Modu</string>
+    <string name="view_settings">Görüntü Ayarları</string>
+    <string name="messages_header">Mesajlar</string>
+</resources>
