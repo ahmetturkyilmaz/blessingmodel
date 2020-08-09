@@ -2,11 +2,10 @@ package com.example.blessing_model.pojo;
 
 import java.io.Serializable;
 
-import io.realm.RealmObject;
-import io.realm.annotations.RealmClass;
 
-@RealmClass
-public class Prayer extends RealmObject implements Serializable {
+
+
+public class Prayer implements Serializable {
     private String sureId;
     private String prayerName;
     private String blessing;

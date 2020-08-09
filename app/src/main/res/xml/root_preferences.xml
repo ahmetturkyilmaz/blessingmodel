@@ -10,7 +10,7 @@
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/view_settings">
         <SwitchPreferenceCompat
-            app:key="sync"
+            app:key="nightMode"
             app:title="@string/dark_mode_setting" />
     </PreferenceCategory>
 </PreferenceScreen>

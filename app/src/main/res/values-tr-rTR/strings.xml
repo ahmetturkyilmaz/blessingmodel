@@ -13,4 +13,6 @@
     <string name="dark_mode_setting">Siyah Modu</string>
     <string name="view_settings">Görüntü Ayarları</string>
     <string name="messages_header">Mesajlar</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

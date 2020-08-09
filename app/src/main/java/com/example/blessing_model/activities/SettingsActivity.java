@@ -3,9 +3,7 @@ package com.example.blessing_model.activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +14,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreference;
 
 import com.example.blessing_model.R;
 import com.example.blessing_model.util.LocaleHelper;
@@ -40,7 +39,8 @@ public class SettingsActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
         fragmentManager.beginTransaction().replace(R.id.settings, new SettingsFragment()).commit();
@@ -53,6 +53,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
         ListPreference languages;
+        SwitchPreference darkMode;
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -91,6 +92,19 @@ public class SettingsActivity extends AppCompatActivity {
 
                                                     }
             );
+            darkMode = getPreferenceManager().findPreference("nightMode");
+            darkMode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    boolean isDarkMode = (boolean) newValue;
+                    if (isDarkMode) {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    } else {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    }
+                    return isDarkMode;
+                }
+            });
 
             return super.onCreateView(inflater, container, savedInstanceState);
         }

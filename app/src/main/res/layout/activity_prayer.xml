@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/prayerToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/toolbarColor"
@@ -24,7 +24,7 @@
             android:id="@+id/zeroButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
+            android:layout_below="@id/prayerToolbar"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
             android:text="@string/zeroButton" />

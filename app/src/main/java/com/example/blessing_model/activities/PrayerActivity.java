@@ -17,7 +17,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PrayerActivity extends AppCompatActivity {
@@ -32,7 +31,7 @@ public class PrayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prayer);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.prayerToolbar);
         setSupportActionBar(toolbar);
 
         counterButton = findViewById(R.id.counterButton);

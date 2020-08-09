@@ -13,4 +13,6 @@
     <string name="language_settings">"اعدادات اللغة "</string>
     <string name="view_settings">"عرض الإعدادات "</string>
     <string name="dark_mode_setting">"الوضع المظلم "</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
