@@ -14,12 +14,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/backgroundColor">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="@color/toolbarColor"
             app:title="selamunaleykum"
             android:id="@+id/mainToolbar"
             app:popupTheme="@style/Theme.AppCompat.Light"
@@ -34,6 +35,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:id="@+id/nav_view"
+        android:background="@color/drawerBackgroundColor"
+        app:itemTextColor="@color/textColor"
         app:headerLayout="@layout/activity_drawer"
         app:menu="@menu/drawer_menu"/>
 </androidx.drawerlayout.widget.DrawerLayout>
