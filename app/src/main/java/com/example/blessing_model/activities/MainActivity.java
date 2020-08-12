@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_sure:
-                Intent prayerIntent = new Intent(this, CounterActivity.class);
+                Intent prayerIntent = new Intent(this, PrayersListActivity.class);
                 startActivity(prayerIntent);
                 break;
             case R.id.nav_dua:

@@ -33,7 +33,7 @@ public class PrayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_prayer);
         Toolbar toolbar = findViewById(R.id.prayerToolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         counterButton = findViewById(R.id.counterButton);
         sureItself = findViewById(R.id.sureItself);
         zeroButton = findViewById(R.id.zeroButton);

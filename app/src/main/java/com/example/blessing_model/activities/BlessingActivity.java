@@ -15,7 +15,7 @@ public class BlessingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blessing);
         Toolbar toolbar = findViewById(R.id.blessingToolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 }

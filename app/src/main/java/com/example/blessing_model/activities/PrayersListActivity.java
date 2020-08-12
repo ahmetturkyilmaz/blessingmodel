@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class CounterActivity extends AppCompatActivity {
+public class PrayersListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -38,14 +39,19 @@ public class CounterActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_counter);
+        setContentView(R.layout.activity_prayers_list);
         recyclerView = (RecyclerView) findViewById(R.id.sure_page);
+
+        Toolbar toolbar = findViewById(R.id.prayersListToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         if (prayers == null) {
             prayers = new ArrayList<>();
             HashMap<Integer, String> prayerMap = getPrayers("tr.json", "tr.diyanet");
             HashMap<Integer, String> prayerNames = getSurahNames("englishName");
             for (int i = 0; i < 114; i++) {
-                prayers.add(new Prayer(String.valueOf(i+1), prayerNames.get(i), prayerMap.get(i+1)));
+                prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
             }
         }
         PrayerAdapter adapter = new PrayerAdapter(prayers);
