@@ -1,12 +1,17 @@
 package com.example.blessing_model.activities;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,8 +38,9 @@ public class PrayersListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-
+    PrayerAdapter adapter;
     ArrayList<Prayer> prayers;
+    ArrayList<Prayer> newList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +60,7 @@ public class PrayersListActivity extends AppCompatActivity {
                 prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
             }
         }
-        PrayerAdapter adapter = new PrayerAdapter(prayers);
+        adapter = new PrayerAdapter(prayers);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -63,12 +69,57 @@ public class PrayersListActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Intent intent = new Intent(getApplicationContext(), PrayerActivity.class);
+                if (!newList.isEmpty()) {
+                    intent.putExtra("id", newList.get(position));
+                    startActivity(intent);
+                } else {
+                    intent.putExtra("id", prayers.get(position));
+                    startActivity(intent);
+                }
 
-                intent.putExtra("id", prayers.get(position));
-                startActivity(intent);
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_search_menu, menu);
+
+        MenuItem searchViewItem = menu.findItem(R.id.search_item);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) searchViewItem.getActionView();
+        searchView.setQueryHint("Search...");
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false);
+
+        SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText = newText.toLowerCase();
+                newList = new ArrayList<>();
+                for (Prayer prayer : prayers) {
+                    String title = prayer.getPrayerName().toLowerCase();
+                    if (title.contains(newText)) {
+                        newList.add(prayer);
+                    }
+                }
+                //create method in adapter
+                adapter.setFilter(newList);
+                if (newText.isEmpty()) {
+                    newList = new ArrayList<>();
+                }
+                return true;
+            }
+        };
+        searchView.setOnQueryTextListener(queryTextListener);
+
+        return true;
     }
 
     private void saveData() {

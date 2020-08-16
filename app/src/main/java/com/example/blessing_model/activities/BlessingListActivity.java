@@ -7,7 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.blessing_model.R;
 
-public class BlessingActivity extends AppCompatActivity {
+public class BlessingListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

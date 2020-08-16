@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(prayerIntent);
                 break;
             case R.id.nav_dua:
-                Intent blessingIntent = new Intent(this, BlessingActivity.class);
+                Intent blessingIntent = new Intent(this, BlessingListActivity.class);
                 startActivity(blessingIntent);
                 break;
             case R.id.nav_settings:

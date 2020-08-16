@@ -3,6 +3,8 @@ package com.example.blessing_model;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 public class PrayerAdapter extends RecyclerView.Adapter<PrayerAdapter.PrayerViewHolder> {
 
     private ArrayList<Prayer> prayers;
+
+
 
     public static class PrayerViewHolder extends RecyclerView.ViewHolder {
         public TextView sureId;
@@ -55,4 +59,12 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerAdapter.PrayerView
     public int getItemCount() {
         return prayers.size();
     }
+
+
+    public void setFilter(ArrayList<Prayer> newList){
+        prayers = new ArrayList<>();
+        prayers.addAll(newList);
+        notifyDataSetChanged();
+    }
+
 }
