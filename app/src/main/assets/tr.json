@@ -5,58 +5,77 @@
         "surahName" : "Fatiha",
         "surah": 1,
         "ayah": 1,
-        "verse": "Rahman ve Rahim olan Allah'\u0131n ad\u0131yla:"
+        "verse": "Rahman ve Rahim olan Allah'\u0131n ad\u0131yla:",
+        "latin":"Bismillahirrahmanirrahim "
       },
       "2": {
         "surahName" : "Fatiha",
         "surah": 1,
         "ayah": 2,
-        "verse": "Hamd, Alemlerin Rabbi Allah'a mahsustur."
+        "verse": "Hamd, Alemlerin Rabbi Allah'a mahsustur.",
+        "latin":"El hamdü lillahi rabbil alemin  "
+
       },
       "3": {
         "surahName" : "Fatiha",
         "surah": 1,
         "ayah": 3,
-        "verse": "O Rahman ve Rahim'dir,"
+        "verse": "O Rahman ve Rahim'dir,",
+        "latin":"Er rahmanir rahıym "
+
       },
       "4": {
         "surahName" : "Fatiha",
         "surah": 1,
         "ayah": 4,
-        "verse": "Din G\u00fcn\u00fcn\u00fcn sahibidir."
+        "verse": "Din G\u00fcn\u00fcn\u00fcn sahibidir.",
+        "latin":"Maliki yevmid din "
+
       },
       "5": {
         "surahName" : "Fatiha",
         "surah": 1,
         "ayah": 5,
-        "verse": "Ancak Sana kulluk eder ve yaln\u0131z Senden yard\u0131m dileriz."
+        "verse": "Ancak Sana kulluk eder ve yaln\u0131z Senden yard\u0131m dileriz.",
+        "latin":"İyyake na'büdü ve iyyake nesteıyn "
+
       },
       "6": {
         "surahName" : "Fatiha",
         "surah": 1,
         "ayah": 6,
-        "verse": "Bizi do\u011fru yola eri\u015ftir."
+        "verse": "Bizi do\u011fru yola eri\u015ftir.",
+        "latin":"İhdinas sıratal müstekıym "
+
       },
       "7": {
         "surahName" : "Fatiha",
         "surah": 1,
         "ayah": 7,
-        "verse": "Nimete erdirdi\u011fin kimselerin yoluna; gazaba u\u011frayanlar\u0131n, ya da sap\u0131tanlar\u0131n yoluna de\u011fil."
+        "verse": "Nimete erdirdi\u011fin kimselerin yoluna; gazaba u\u011frayanlar\u0131n, ya da sap\u0131tanlar\u0131n yoluna de\u011fil.",
+        "latin":"Sıratallezine en'amte aleyhim ğayril mağdubi aleyhim ve lad dallin "
+
       },
       "8": {
         "surah": 2,
         "ayah": 1,
-        "verse": "Elif, Lam, Mim."
+        "verse": "Elif, Lam, Mim.",
+        "latin":"Sıratallezine en'amte aleyhim ğayril mağdubi aleyhim ve lad dallin "
+
       },
       "9": {
         "surah": 2,
         "ayah": 2,
-        "verse": "Bu, do\u011frulu\u011fu \u015f\u00fcphe g\u00f6t\u00fcrmeyen ve Allah'a kar\u015f\u0131 gelmekten sak\u0131nanlara yol g\u00f6steren Kitap'd\u0131r."
+        "verse": "Bu, do\u011frulu\u011fu \u015f\u00fcphe g\u00f6t\u00fcrmeyen ve Allah'a kar\u015f\u0131 gelmekten sak\u0131nanlara yol g\u00f6steren Kitap'd\u0131r.",
+        "latin":"Sıratallezine en'amte aleyhim ğayril mağdubi aleyhim ve lad dallin "
+
       },
       "10": {
         "surah": 2,
         "ayah": 3,
-        "verse": "Onlar, gaybe inan\u0131rlar, namaz\u0131 k\u0131larlar, kendilerine verdi\u011fimiz r\u0131z\u0131ktan yerli yerince sarfederler."
+        "verse": "Onlar, gaybe inan\u0131rlar, namaz\u0131 k\u0131larlar, kendilerine verdi\u011fimiz r\u0131z\u0131ktan yerli yerince sarfederler.",
+        "latin":"Sıratallezine en'amte aleyhim ğayril mağdubi aleyhim ve lad dallin "
+
       },
       "11": {
         "surah": 2,

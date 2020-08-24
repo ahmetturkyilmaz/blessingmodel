@@ -1,0 +1,596 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "eng_name": "Ar-Rahman",
+      "eng_meaning": "The Beneficent",
+      "explanation": "The Most or Entirely Merciful"
+    },
+    {
+      "id": "2",
+      "eng_name": "Ar-Raheem",
+      "eng_meaning": "The Merciful",
+      "explanation": "The Bestower of Mercy"
+    },
+    {
+      "id": "3",
+      "eng_name": "Al-Malik",
+      "eng_meaning": "The Eternal Lord",
+      "explanation": "The King and Owner of Dominion"
+    },
+    {
+      "id": "4",
+      "eng_name": "Al-Quddus",
+      "eng_meaning": "The Most Sacred",
+      "explanation": "The Absolutely Pure"
+    },
+    {
+      "id": "5",
+      "eng_name": "As-Salam",
+      "eng_meaning": "The Embodiment of Peace",
+      "explanation": "The Perfection and Giver of Peace"
+    },
+    {
+      "id": "6",
+      "eng_name": "Al-Mu'min",
+      "eng_meaning": "The Infuser of Faith",
+      "explanation": "The One Who gives Emaan and Security"
+    },
+    {
+      "id": "7",
+      "eng_name": "Al-Muhaymin",
+      "eng_meaning": "The Preserver of Safety",
+      "explanation": "The Guardian, The Witness, The Overseer"
+    },
+    {
+      "id": "8",
+      "icon": "assets/imgs/8. Al-Aziz - The Mighty One.gif",
+      "eng_name": "Al-Aziz",
+      "explanation": "The All Mighty"
+    },
+    {
+      "id": "9",
+      "icon": "assets/imgs/9. Al-Jabbar - The Omnipotent One.gif",
+      "eng_name": "Al-Jabbar",
+      "explanation": "The Compeller, The Restore"
+    },
+    {
+      "id": "10",
+      "icon": "assets/imgs/10. Al-Mutakabbir - The Dominant One.gif",
+      "eng_name": "Al-Mutakabbir",
+      "explanation": "The Supreme, The Majestic"
+    },
+    {
+      "id": "11",
+      "icon": "assets/imgs/11. Al-Khaliq - The Creator.gif",
+      "eng_name": "Al-Khaliq",
+      "explanation": "The Creator, The Maker"
+    },
+    {
+      "id": "12",
+      "icon": "assets/imgs/12. Al-Baari - The Evolver.gif",
+      "eng_name": "Al-Baari",
+      "explanation": "The Originator"
+    },
+    {
+      "id": "13",
+      "icon": "assets/imgs/13. Al-Musawwir - The Flawless Shaper.gif",
+      "eng_name": "Al-Musawwir",
+      "explanation": "The Fashioner"
+    },
+    {
+      "id": "14",
+      "icon": "assets/imgs/14. Al-Ghaffar - The Great Forgiver.gif",
+      "eng_name": "Al-Ghaffar",
+      "explanation": "The All- and Oft-Forgiving"
+    },
+    {
+      "id": "15",
+      "icon": "assets/imgs/15. Al-Qahhar - The All-Prevailing One.gif",
+      "eng_name": "Al-Qahhar",
+      "explanation": "The Subduer, The Ever-Dominating"
+    },
+    {
+      "id": "16",
+      "icon": "assets/imgs/16. Al-Wahhab - The Supreme Bestower.gif",
+      "eng_name": "Al-Wahhab",
+      "explanation": "The Giver of Gifts"
+    },
+    {
+      "id": "17",
+      "icon": "assets/imgs/17. Ar-Razzaq - The Total Provider.gif",
+      "eng_name": "Ar-Razzaq",
+      "explanation": "The Provider"
+    },
+    {
+      "id": "18",
+      "icon": "assets/imgs/18. Al-Fattah - The Supreme Solver.gif",
+      "eng_name": "Al-Fattah",
+      "explanation": "The Opener, The Judge"
+    },
+    {
+      "id": "19",
+      "icon": "assets/imgs/19. Al-Alim - The All-Knowing One.gif",
+      "eng_name": "Al-Alim",
+      "explanation": "The All-Knowing, The Omniscient"
+    },
+    {
+      "id": "20",
+      "icon": "assets/imgs/20. Al-Qabid - The Restricting One.gif",
+      "eng_name": "Al-Qabid",
+      "explanation": "The Withholde"
+    },
+    {
+      "id": "21",
+      "icon": "assets/imgs/21. Al-Basit - The Extender.gif",
+      "eng_name": "Al-Basit",
+      "explanation": "The Extender"
+    },
+    {
+      "id": "22",
+      "icon": "assets/imgs/22. Al-Khafid - The Reducer.gif",
+      "eng_name": "Al-Khafid",
+      "explanation": "The Reducer, The Abaser"
+    },
+    {
+      "id": "23",
+      "icon": "assets/imgs/23. Ar-Rafi - The Elevating One.gif",
+      "eng_name": "Ar-Rafi",
+      "explanation": "The Exalter, The Elevator"
+    },
+    {
+      "id": "24",
+      "icon": "assets/imgs/24. Al-Mu'izz - The Honourer-Bestower.gif",
+      "eng_name": "Al-Mu'izz",
+      "explanation": "The Honourer, The Bestowe"
+    },
+    {
+      "id": "25",
+      "icon": "assets/imgs/25. Al-Muzil - The Abaser.gif",
+      "eng_name": "Al-Muzil",
+      "explanation": "The Dishonourer, The Humiliator"
+    },
+    {
+      "id": "26",
+      "icon": "assets/imgs/26. As-Sami' - The All-Hearer.gif",
+      "eng_name": "As-Sami",
+      "explanation": "The All-Hearing"
+    },
+    {
+      "id": "27",
+      "icon": "assets/imgs/27. Al-Baseer - The All-Seeing.gif",
+      "eng_name": "Al-Baseer",
+      "explanation": "The All-Seeing"
+    },
+    {
+      "id": "28",
+      "icon": "assets/imgs/28. Al-Hakam - The Impartial Judge.gif",
+      "eng_name": "Al-Hakam",
+      "explanation": "The Judge, The Giver of Justice"
+    },
+    {
+      "id": "29",
+      "icon": "assets/imgs/29. Al-Adl - The Embodiment of Justice.gif",
+      "eng_name": "Al-Adl",
+      "explanation": "The Utterly Just"
+    },
+    {
+      "id": "30",
+      "icon": "assets/imgs/30. Al-Lateef - The Knower of Subtleties.gif",
+      "eng_name": "Al-Lateef",
+      "explanation": "The Subtle One, The Most Gentle"
+    },
+    {
+      "id": "31",
+      "icon": "assets/imgs/31. Al-Khabeer - The All-Aware One.gif",
+      "eng_name": "Al-Khabeer",
+      "explanation": "The Acquainted, the All-Aware"
+    },
+    {
+      "id": "32",
+      "icon": "assets/imgs/32. Al-Haleem - The Clement One.gif",
+      "eng_name": "Al-Haleem",
+      "explanation": "The Most Forbearing"
+    },
+    {
+      "id": "33",
+      "icon": "assets/imgs/33. Al-Azeem - The Magnificent One.gif",
+      "eng_name": "Al-Azeem",
+      "explanation": "The Magnificent, The Supreme"
+    },
+    {
+      "id": "34",
+      "icon": "assets/imgs/34. Al-Ghafoor - The Great Forgiver.gif",
+      "eng_name": "Al-Ghafoor",
+      "explanation": "The Forgiving, The Exceedingly Forgiving"
+    },
+    {
+      "id": "35",
+      "icon": "assets/imgs/35. Ash-Shakoor - The Acknowledging One.gif",
+      "eng_name": "Ash-Shakoor",
+      "explanation": "The Most Appreciative"
+    },
+    {
+      "id": "36",
+      "icon": "assets/imgs/36. Al-Aliyy - The Sublime One.gif",
+      "eng_name": "Al-Aliyy",
+      "explanation": "The Most High, The Exalted"
+    },
+    {
+      "id": "37",
+      "icon": "assets/imgs/37. Al-Kabeer - The Great One.gif",
+      "eng_name": "Al-Kabeer",
+      "explanation": "The Greatest, The Most Grand"
+    },
+    {
+      "id": "38",
+      "icon": "assets/imgs/38. Al-Hafiz - The Guarding One.gif",
+      "eng_name": "Al-Hafiz",
+      "explanation": "The Preserver, The All-Heedful and All-Protecting"
+    },
+    {
+      "id": "39",
+      "icon": "assets/imgs/39. Al-Muqeet - The Sustaining One.gif",
+      "eng_name": "Al-Muqeet",
+      "explanation": "The Sustainer"
+    },
+    {
+      "id": "40",
+      "icon": "assets/imgs/40. Al-Haseeb - The Reckoning One.gif",
+      "eng_name": "Al-Haseeb",
+      "explanation": "The Reckoner, The Sufficient"
+    },
+    {
+      "id": "41",
+      "icon": "assets/imgs/41. Al-Jaleel - The Majestic One.gif",
+      "eng_name": "Al-Jaleel",
+      "explanation": "The Majestic"
+    },
+    {
+      "id": "42",
+      "icon": "assets/imgs/42. Al-Kareem - The Bountiful One.gif",
+      "eng_name": "Al-Kareem",
+      "explanation": "The Most Generous, The Most Esteemed"
+    },
+    {
+      "id": "43",
+      "icon": "assets/imgs/43. Ar-Raqeeb - The Watchful One.gif",
+      "eng_name": "Ar-Raqeeb",
+      "explanation": "The Watchful"
+    },
+    {
+      "id": "44",
+      "icon": "assets/imgs/44. Al-Mujeeb - The Responding One.gif",
+      "eng_name": "Al-Mujeeb",
+      "explanation": "The Responsive One"
+    },
+    {
+      "id": "45",
+      "icon": "assets/imgs/45. Al-Waasi' - The All-Pervading One.gif",
+      "eng_name": "Al-Waasi",
+      "explanation": "The All-Encompassing, the Boundless"
+    },
+    {
+      "id": "46",
+      "icon": "assets/imgs/46. Al-Hakeem - The Wise One.gif",
+      "eng_name": "Al-Hakeem",
+      "explanation": "The All-Wise"
+    },
+    {
+      "id": "47",
+      "icon": "assets/imgs/47. Al-Wadud - The Loving One.gif",
+      "eng_name": "Al-Wadud",
+      "explanation": "The Most Loving"
+    },
+    {
+      "id": "48",
+      "icon": "assets/imgs/48. Al-Majeed - The Glorious One.gif",
+      "eng_name": "Al-Majeed",
+      "explanation": "The Glorious, The Most Honorable"
+    },
+    {
+      "id": "49",
+      "icon": "assets/imgs/49. Al-Ba'ith - The Infuser of New Life.gif",
+      "eng_name": "Al-Ba'ith",
+      "explanation": "The Resurrector, The Raiser of the Dead"
+    },
+    {
+      "id": "50",
+      "icon": "assets/imgs/50. Ash-Shaheed - The All Observing Witness.gif",
+      "eng_name": "Ash-Shaheed",
+      "explanation": "The All- and Ever Witnessing"
+    },
+    {
+      "id": "51",
+      "icon": "assets/imgs/51. Al-Haqq - The Embodiment of Truth.gif",
+      "eng_name": "Al-Haqq",
+      "explanation": "The Absolute Truth"
+    },
+    {
+      "id": "52",
+      "icon": "assets/imgs/52. Al-Wakeel - The Universal Trustee.gif",
+      "eng_name": "Al-Wakeel",
+      "explanation": "The Trustee, The Disposer of Affairs"
+    },
+    {
+      "id": "53",
+      "icon": "assets/imgs/53. Al-Qawiyy - The Strong One.gif",
+      "eng_name": "Al-Qawiyy",
+      "explanation": "The All-Strong"
+    },
+    {
+      "id": "54",
+      "icon": "assets/imgs/54. Al-Mateen - The Firm One.gif",
+      "eng_name": "Al-Mateen",
+      "explanation": "The Firm, The Steadfast"
+    },
+    {
+      "id": "55",
+      "icon": "assets/imgs/55. Al-Waliyy - The Protecting Associate.gif",
+      "eng_name": "Al-Waliyy",
+      "explanation": "The Protecting Associate"
+    },
+    {
+      "id": "56",
+      "icon": "assets/imgs/56. Al-Hameed - The Sole-Laudable One.gif",
+      "eng_name": "Al-Hameed",
+      "explanation": "The Praiseworthy"
+    },
+    {
+      "id": "57",
+      "icon": "assets/imgs/57. Al-Muhsee - The All-Enumerating One.gif",
+      "eng_name": "Al-Muhsee",
+      "explanation": "The All-Enumerating, The Counter"
+    },
+    {
+      "id": "58",
+      "icon": "assets/imgs/58. Al-Mubdi - The Originator.gif",
+      "eng_name": "Al-Mubdi",
+      "explanation": "The Originator, The Initiator"
+    },
+    {
+      "id": "59",
+      "icon": "assets/imgs/59. Al-Mueed - The Restorer.gif",
+      "eng_name": "Al-Mueed",
+      "explanation": "The Restorer, The Reinstater"
+    },
+    {
+      "id": "60",
+      "icon": "assets/imgs/60. Al-Muhyi - The Maintainer of life.gif",
+      "eng_name": "Al-Muhyi",
+      "explanation": "The Giver of Life"
+    },
+    {
+      "id": "61",
+      "icon": "assets/imgs/61. Al-Mumeet - The Inflictor of Death.gif",
+      "eng_name": "Al-Mumeet",
+      "explanation": "The Bringer of Death, the Destroyer"
+    },
+    {
+      "id": "62",
+      "icon": "assets/imgs/62. Al-Hayy - The Eternally Living One.gif",
+      "eng_name": "Al-Hayy",
+      "explanation": "The Ever-Living"
+    },
+    {
+      "id": "63",
+      "icon": "assets/imgs/63. Al-Qayyoom - The Self-Subsisting One.gif",
+      "eng_name": "Al-Qayyoom",
+      "explanation": "The Sustainer, The Self-Subsisting"
+    },
+    {
+      "id": "64",
+      "icon": "assets/imgs/64. Al-Waajid - The Pointing One.gif",
+      "eng_name": "Al-Waajid",
+      "explanation": "The Perceiver"
+    },
+    {
+      "id": "65",
+      "icon": "assets/imgs/65. Al-Maajid - The All Noble One.gif",
+      "eng_name": "Al-Maajid",
+      "explanation": "The Illustrious, the Magnificent"
+    },
+    {
+      "id": "66",
+      "icon": "assets/imgs/66. Al-Waahid - The Only One.gif",
+      "eng_name": "Al-Waahid",
+      "explanation": "The One"
+    },
+    {
+      "id": "67",
+      "icon": "assets/imgs/67. Al-Ahad - The Sole One.gif",
+      "eng_name": "Al-Ahad",
+      "explanation": "The Unique, The Only One"
+    },
+    {
+      "id": "68",
+      "icon": "assets/imgs/68. As-Samad - The Supreme Provider.gif",
+      "eng_name": "As-Samad",
+      "explanation": "The Eternal, Satisfier of Needs"
+    },
+    {
+      "id": "69",
+      "icon": "assets/imgs/69. Al-Qaadir - The Omnipotent One.gif",
+      "eng_name": "Al-Qaadir",
+      "explanation": "The Capable, The Powerful"
+    },
+    {
+      "id": "70",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Muqtadir",
+      "explanation": "The Omnipotent"
+    },
+    {
+      "id": "71",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Muqaddim",
+      "explanation": "The Expediter, The Promoter"
+    },
+    {
+      "id": "72",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Mu'Akhkhir",
+      "explanation": "The Delayer, the Retarder"
+    },
+    {
+      "id": "73",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Awwal",
+      "explanation": "The First"
+    },
+    {
+      "id": "74",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Aakhir",
+      "explanation": "The Last"
+    },
+    {
+      "id": "75",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Az-Dhaahir",
+      "explanation": "The Manifes"
+    },
+    {
+      "id": "76",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Baatin",
+      "explanation": "The Hidden One, Knower of the Hidden"
+    },
+    {
+      "id": "77",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Waali",
+      "explanation": "The Governor, The Patron"
+    },
+    {
+      "id": "78",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Muta'Ali",
+      "explanation": "The Beneficent"
+    },
+    {
+      "id": "79",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Barr",
+      "explanation": "The Source of Goodness, the Kind Benefactor"
+    },
+    {
+      "id": "80",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "At-Tawwab",
+      "explanation": "The Ever-Pardoning, The Relenting"
+    },
+    {
+      "id": "81",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Muntaqim",
+      "explanation": "The Avenger"
+    },
+    {
+      "id": "82",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-'Afuww",
+      "explanation": "The Pardoner"
+    },
+    {
+      "id": "83",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Ar-Ra'oof",
+      "explanation": "The Most Kind"
+    },
+    {
+      "id": "84",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Maalik-il-mulk",
+      "explanation": "Master of the Kingdom, Owner of the Dominion"
+    },
+    {
+      "id": "85",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Dhul-Jalaali Wal-Ikraam",
+      "explanation": "Possessor of Glory and Honour, Lord of Majesty and Generosity"
+    },
+    {
+      "id": "86",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Muqsit",
+      "explanation": "The Equitable, the Requiter"
+    },
+    {
+      "id": "87",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Jaami'",
+      "explanation": "The Gatherer, the Uniter"
+    },
+    {
+      "id": "88",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Ghaniyy",
+      "explanation": "The Self-Sufficient, The Wealthy"
+    },
+    {
+      "id": "89",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Mughni",
+      "explanation": "The Enricher"
+    },
+    {
+      "id": "90",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Mani'",
+      "explanation": "The Withholder"
+    },
+    {
+      "id": "91",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Ad_Dharr",
+      "explanation": "The Distresser"
+    },
+    {
+      "id": "92",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "An-Nafi",
+      "explanation": "The Propitious, the Benefactor"
+    },
+    {
+      "id": "93",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "An-Nur",
+      "explanation": "The Light, The Illuminator"
+    },
+    {
+      "id": "94",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Haadi",
+      "explanation": "The Guide"
+    },
+    {
+      "id": "95",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Badee'",
+      "explanation": "The Incomparable Originator"
+    },
+    {
+      "id": "96",
+      "icon": "assets/imgs/1.Ar-Rahman.gif",
+      "eng_name": "Al-Baaqi",
+      "explanation": "The Ever-Surviving, The Everlasting"
+    },
+    {
+      "id": "97",
+      "eng_name": "Al-Waarith",
+      "explanation": "The Inheritor, The Heir"
+    },
+    {
+      "id": "98",
+      "eng_name": "Ar-Rasheed",
+      "explanation": "The Guide, Infallible Teacher"
+    },
+    {
+      "id": "99",
+      "eng_name": "As-Saboor",
+      "eng_meaning": "The Beneficent",
+      "explanation": "The Forbearing, The Patient"
+    }
+  ]
+}

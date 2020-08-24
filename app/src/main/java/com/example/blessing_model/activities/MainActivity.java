@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent prayerIntent = new Intent(this, PrayersListActivity.class);
                 startActivity(prayerIntent);
                 break;
-            case R.id.nav_dua:
-                Intent blessingIntent = new Intent(this, BlessingListActivity.class);
-                startActivity(blessingIntent);
+            case R.id.nav_names:
+                Intent nameListIntent = new Intent(this, NameListActivity.class);
+                startActivity(nameListIntent);
                 break;
             case R.id.nav_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
@@ -98,8 +98,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onPostCreate(savedInstanceState);
         toggle.syncState();
     }
-
-
 
 
 }

@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.blessing_model.util.ItemClickSupport;
 import com.example.blessing_model.pojo.Prayer;
-import com.example.blessing_model.PrayerAdapter;
+import com.example.blessing_model.adapters.PrayerAdapter;
 import com.example.blessing_model.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -32,6 +32,7 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 
 public class PrayersListActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class PrayersListActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     PrayerAdapter adapter;
     ArrayList<Prayer> prayers;
-    ArrayList<Prayer> newList;
+    ArrayList<Prayer> newList = null;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,11 +52,22 @@ public class PrayersListActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.prayersListToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        HashMap<Integer, String> prayerNames = null;
+        HashMap<Integer, String> prayerMap = null;
         if (prayers == null) {
             prayers = new ArrayList<>();
-            HashMap<Integer, String> prayerMap = getPrayers("tr.json", "tr.diyanet");
-            HashMap<Integer, String> prayerNames = getSurahNames("englishName");
+            Locale locale = getResources().getConfiguration().locale;
+            String language = locale.getLanguage();
+            if (language.equals("en")) {
+                prayerMap = getPrayers("eng.json", "en.pickthall");
+                prayerNames = getSurahNames("englishName");
+            } else if (language.equals("tr")) {
+                prayerMap = getPrayers("tr.json", "tr.diyanet");
+                prayerNames = getSurahNames("turkishName");
+            } else {
+                prayerMap = getPrayers("arab.json", "ar.muyassar");
+                prayerNames = getSurahNames("englishName");
+            }
             for (int i = 0; i < 114; i++) {
                 prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
             }
@@ -69,13 +81,12 @@ public class PrayersListActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Intent intent = new Intent(getApplicationContext(), PrayerActivity.class);
-                if (!newList.isEmpty()) {
+                if (newList != null && !newList.isEmpty()) {
                     intent.putExtra("id", newList.get(position));
-                    startActivity(intent);
                 } else {
                     intent.putExtra("id", prayers.get(position));
-                    startActivity(intent);
                 }
+                startActivity(intent);
 
             }
         });
@@ -122,7 +133,7 @@ public class PrayersListActivity extends AppCompatActivity {
         return true;
     }
 
-    private void saveData() {
+/*    private void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("prayerPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
@@ -146,7 +157,7 @@ public class PrayersListActivity extends AppCompatActivity {
             prayers = new ArrayList<>();
 
         }
-    }
+    }*/
 
     public String loadJSONFromAsset(String fileName) {
         String json = null;

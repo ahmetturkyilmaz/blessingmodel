@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activities.NameActivity"
+            android:parentActivityName=".activities.NameListActivity" />
+        <activity
+            android:name=".activities.NameListActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
             android:name=".activities.BlessingListActivity"
             android:label="@string/title_activity_blessing"
             android:parentActivityName=".activities.MainActivity"
@@ -35,6 +41,7 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
