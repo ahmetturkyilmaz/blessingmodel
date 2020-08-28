@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class Prayer implements Serializable {
     private String sureId;
     private String prayerName;
+    private String latinAlphabet;
     private String blessing;
 
     public Prayer() {
@@ -16,6 +17,13 @@ public class Prayer implements Serializable {
     public Prayer(String sureId, String prayerName, String blessing) {
         this.sureId = sureId;
         this.prayerName = prayerName;
+        this.blessing = blessing;
+    }
+
+    public Prayer(String sureId, String prayerName, String latinAlphabet, String blessing) {
+        this.sureId = sureId;
+        this.prayerName = prayerName;
+        this.latinAlphabet = latinAlphabet;
         this.blessing = blessing;
     }
 
@@ -43,4 +51,11 @@ public class Prayer implements Serializable {
         this.blessing = blessing;
     }
 
+    public String getLatinAlphabet() {
+        return latinAlphabet;
+    }
+
+    public void setLatinAlphabet(String latinAlphabet) {
+        this.latinAlphabet = latinAlphabet;
+    }
 }

@@ -22,4 +22,29 @@ public class JsonUtil {
         }
         return json;
     }
+    /*    private void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("prayerPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(prayers);
+        editor.putString("prayers", json);
+        editor.apply();
+
+    }
+
+    private void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("prayerPreferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("prayers", null);
+
+        Type type = new TypeToken<ArrayList<Prayer>>() {
+        }.getType();
+        prayers = gson.fromJson(json, type);
+
+        if (prayers == null) {
+            HashMap<String, String> prayerList = new HashMap<>();
+            prayers = new ArrayList<>();
+
+        }
+    }*/
 }

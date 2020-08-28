@@ -54,6 +54,7 @@ public class PrayersListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         HashMap<Integer, String> prayerNames = null;
         HashMap<Integer, String> prayerMap = null;
+        HashMap<Integer, String> prayerLatinMap = null;
         if (prayers == null) {
             prayers = new ArrayList<>();
             Locale locale = getResources().getConfiguration().locale;
@@ -62,14 +63,20 @@ public class PrayersListActivity extends AppCompatActivity {
                 prayerMap = getPrayers("eng.json", "en.pickthall");
                 prayerNames = getSurahNames("englishName");
             } else if (language.equals("tr")) {
-                prayerMap = getPrayers("tr.json", "tr.diyanet");
+                prayerMap = getPrayers("tr.json", "tr.diyanet", "verse");
+                prayerLatinMap = getPrayers("tr.json", "tr.diyanet", "Latin");
                 prayerNames = getSurahNames("turkishName");
             } else {
                 prayerMap = getPrayers("arab.json", "ar.muyassar");
                 prayerNames = getSurahNames("englishName");
             }
             for (int i = 0; i < 114; i++) {
+                if (prayerLatinMap != null) {
+                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerLatinMap.get(i), prayerMap.get(i + 1)));
+
+                }
                 prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
+
             }
         }
         adapter = new PrayerAdapter(prayers);
@@ -133,31 +140,7 @@ public class PrayersListActivity extends AppCompatActivity {
         return true;
     }
 
-/*    private void saveData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("prayerPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(prayers);
-        editor.putString("prayers", json);
-        editor.apply();
 
-    }
-
-    private void loadData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("prayerPreferences", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("prayers", null);
-
-        Type type = new TypeToken<ArrayList<Prayer>>() {
-        }.getType();
-        prayers = gson.fromJson(json, type);
-
-        if (prayers == null) {
-            HashMap<String, String> prayerList = new HashMap<>();
-            prayers = new ArrayList<>();
-
-        }
-    }*/
 
     public String loadJSONFromAsset(String fileName) {
         String json = null;
@@ -188,6 +171,32 @@ public class PrayersListActivity extends AppCompatActivity {
                 String ayahItself = (String) ayah.get("verse");
                 if (!(surahMap.get(surahNumber) == null)) {
                     String newSurahString = surahMap.get(surahNumber).concat(" ").concat(ayahItself);
+
+                    surahMap.put(surahNumber, newSurahString);
+                } else {
+                    surahMap.put(surahNumber, ayahItself);
+                }
+            }
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
+        return surahMap;
+    }
+
+    public HashMap<Integer, String> getPrayers(String fileName, String translator, String alphabet) {
+        HashMap<Integer, String> surahMap = new HashMap<>();
+
+        try {
+            JSONObject obj = new JSONObject(loadJSONFromAsset(fileName));
+            JSONObject quran = obj.getJSONObject("quran");
+            JSONObject publisher = quran.getJSONObject(translator);
+            for (int i = 1; i <= 6236; i++) {
+                JSONObject ayah = publisher.getJSONObject(String.valueOf(i));
+                Integer surahNumber = (Integer) ayah.get("surah");
+                String ayahItself = (String) ayah.get(alphabet);
+                if (!(surahMap.get(surahNumber) == null)) {
+                    String newSurahString = surahMap.get(surahNumber).concat(" ").concat(ayahItself);
+
                     surahMap.put(surahNumber, newSurahString);
                 } else {
                     surahMap.put(surahNumber, ayahItself);
