@@ -41,13 +41,8 @@ public class PrayerActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.prayerToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        counterButton = findViewById(R.id.counterButton);
-        sureItself = findViewById(R.id.sureItself);
-        zeroButton = findViewById(R.id.zeroButton);
-        number = findViewById(R.id.number);
-        switchCompat = findViewById(R.id.changeAlphabet);
-        changeLanguageText = findViewById(R.id.changeAlphabetText);
-        prayer = (Prayer) getIntent().getSerializableExtra("id");
+
+        define();
 
         loadData();
         number.setText(countZiqir.get(Integer.parseInt(prayer.getSureId())));
@@ -89,6 +84,17 @@ public class PrayerActivity extends AppCompatActivity {
                 number.setText("0");
             }
         });
+    }
+
+    private void define() {
+        counterButton = findViewById(R.id.counterButton);
+        sureItself = findViewById(R.id.sureItself);
+        zeroButton = findViewById(R.id.zeroButton);
+        number = findViewById(R.id.number);
+        switchCompat = findViewById(R.id.changeAlphabet);
+        changeLanguageText = findViewById(R.id.changeAlphabetText);
+        prayer = (Prayer) getIntent().getSerializableExtra("id");
+
     }
 
     private void saveData() {

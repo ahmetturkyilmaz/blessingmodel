@@ -11,10 +11,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.blessing_model.R;
@@ -23,15 +24,23 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    HashMap<Integer, String> countForPrayers;
+    HashMap<Integer, String> countForNames;
+
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private AppCompatImageView imageView;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +89,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        //continue or start prayers dhikr
+        button.findViewById(R.id.startDhikrPrayers);
+        loadDataForPrayers();
+        if (countForPrayers == null) {
+            button.setText("Start Dhikr for Prayers");
+            Intent prayerIntent = new Intent(this, PrayersListActivity.class);
+            startActivity(prayerIntent);
+        } else {
+            button.setText("Continue Dhikr for Prayers");
+            Intent continueDhikr = new Intent(this, ContinueDhikrForPrayers.class);
+            startActivity(continueDhikr);
+        }
+
+        button.findViewById(R.id.startDihkrNames);
+        loadDataForNames();
+        if (countForPrayers == null) {
+            button.setText("Start Dhikr for Names");
+            Intent prayerIntent = new Intent(this, PrayersListActivity.class);
+            startActivity(prayerIntent);
+        } else {
+            button.setText("Continue Dhikr for Names");
+            Intent continueDhikr = new Intent(this, ContinueDhikrForPrayers.class);
+            startActivity(continueDhikr);
+        }
 
     }
 
@@ -135,5 +169,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
     }
 
+    private void loadDataForPrayers() {
+        SharedPreferences sharedPreferences = getSharedPreferences("prayerPreferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("prayers", null);
 
+        Type type = new TypeToken<HashMap<Integer, String>>() {
+        }.getType();
+        countForPrayers = gson.fromJson(json, type);
+        if (countForPrayers == null) {
+            countForPrayers = new HashMap<>();
+            for (int i = 1; i < 115; i++) {
+                countForPrayers.put(i, "0");
+            }
+        }
+    }
+
+    private void loadDataForNames() {
+        SharedPreferences sharedPreferences = getSharedPreferences("namesPreferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("names", null);
+
+        Type type = new TypeToken<HashMap<Integer, String>>() {
+        }.getType();
+        countForNames = gson.fromJson(json, type);
+        if (countForNames == null) {
+            countForNames = new HashMap<>();
+            for (int i = 1; i < 99; i++) {
+                countForNames.put(i, "0");
+            }
+        }
+    }
 }
