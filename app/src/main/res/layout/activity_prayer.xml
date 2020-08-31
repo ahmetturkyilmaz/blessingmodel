@@ -19,22 +19,24 @@
             app:navigationIcon="?attr/homeAsUpIndicator"
             android:elevation="4dp"
             app:popupTheme="@style/Theme.AppCompat.Light" />
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/changeAlphabet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_above="@id/scrollSure"/>
+
 
         <TextView
             android:id="@+id/changeAlphabetText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+
             android:layout_above="@id/changeAlphabet"
             android:textColor="@color/textColor"
             />
-
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/changeAlphabet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/prayerToolbar"
+            android:layout_alignParentStart="true"
+            android:layout_above="@id/scrollSure"/>
         <Button
             android:id="@+id/zeroButton"
             android:layout_width="wrap_content"
@@ -46,6 +48,7 @@
 
         <ScrollView
             android:id="@+id/scrollSure"
+
             android:layout_width="400dp"
             android:layout_height="500dp"
             android:layout_below="@id/zeroButton"

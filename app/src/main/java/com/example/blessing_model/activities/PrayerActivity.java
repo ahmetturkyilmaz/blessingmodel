@@ -5,10 +5,12 @@ import android.os.Bundle;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.blessing_model.pojo.Prayer;
@@ -26,11 +28,16 @@ public class PrayerActivity extends AppCompatActivity {
     Button zeroButton;
     TextView number;
     Prayer prayer;
+    SwitchCompat switchCompat;
+    TextView changeLanguageText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prayer);
+
+
         Toolbar toolbar = findViewById(R.id.prayerToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -38,12 +45,13 @@ public class PrayerActivity extends AppCompatActivity {
         sureItself = findViewById(R.id.sureItself);
         zeroButton = findViewById(R.id.zeroButton);
         number = findViewById(R.id.number);
+        switchCompat = findViewById(R.id.changeAlphabet);
+        changeLanguageText = findViewById(R.id.changeAlphabetText);
         prayer = (Prayer) getIntent().getSerializableExtra("id");
 
         loadData();
         number.setText(countZiqir.get(Integer.parseInt(prayer.getSureId())));
 
-        sureItself.setText(prayer.getBlessing());
         counterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +62,24 @@ public class PrayerActivity extends AppCompatActivity {
                 number.setText(String.valueOf(counter));
             }
         });
+        if (prayer.getLatinAlphabet() != null) {
+            sureItself.setText(prayer.getLatinAlphabet());
+            changeLanguageText.setText("Latince Okunuş");
+
+            switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        sureItself.setText(prayer.getBlessing());
+                    }
+                    if (!isChecked) {
+                        sureItself.setText(prayer.getLatinAlphabet());
+                    }
+                }
+            });
+        } else {
+            sureItself.setText(prayer.getBlessing());
+        }
 
         zeroButton.setOnClickListener(new View.OnClickListener() {
             @Override

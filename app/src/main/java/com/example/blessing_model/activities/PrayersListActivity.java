@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,8 +21,8 @@ import com.example.blessing_model.util.ItemClickSupport;
 import com.example.blessing_model.pojo.Prayer;
 import com.example.blessing_model.adapters.PrayerAdapter;
 import com.example.blessing_model.R;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +30,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -39,14 +39,25 @@ public class PrayersListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    PrayerAdapter adapter;
-    ArrayList<Prayer> prayers;
-    ArrayList<Prayer> newList = null;
+    private PrayerAdapter adapter;
+    private ArrayList<Prayer> prayers;
+    private ArrayList<Prayer> newList = null;
+    private InterstitialAd mInterstitialAd;
+    Intent intent;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prayers_list);
+
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        //ca-app-pub-4701964854424760/2932349785
+
+
         recyclerView = (RecyclerView) findViewById(R.id.sure_page);
 
         Toolbar toolbar = findViewById(R.id.prayersListToolbar);
@@ -55,6 +66,7 @@ public class PrayersListActivity extends AppCompatActivity {
         HashMap<Integer, String> prayerNames = null;
         HashMap<Integer, String> prayerMap = null;
         HashMap<Integer, String> prayerLatinMap = null;
+
         if (prayers == null) {
             prayers = new ArrayList<>();
             Locale locale = getResources().getConfiguration().locale;
@@ -63,8 +75,8 @@ public class PrayersListActivity extends AppCompatActivity {
                 prayerMap = getPrayers("eng.json", "en.pickthall");
                 prayerNames = getSurahNames("englishName");
             } else if (language.equals("tr")) {
-                prayerMap = getPrayers("tr.json", "tr.diyanet", "verse");
-                prayerLatinMap = getPrayers("tr.json", "tr.diyanet", "Latin");
+                prayerMap = getPrayers("newTR.json", "tr.diyanet", "verse");
+                prayerLatinMap = getPrayers("newTR.json", "tr.diyanet", "Latin");
                 prayerNames = getSurahNames("turkishName");
             } else {
                 prayerMap = getPrayers("arab.json", "ar.muyassar");
@@ -72,11 +84,11 @@ public class PrayersListActivity extends AppCompatActivity {
             }
             for (int i = 0; i < 114; i++) {
                 if (prayerLatinMap != null) {
-                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerLatinMap.get(i), prayerMap.get(i + 1)));
+                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerLatinMap.get(i+1), prayerMap.get(i + 1)));
 
+                } else {
+                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
                 }
-                prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
-
             }
         }
         adapter = new PrayerAdapter(prayers);
@@ -87,11 +99,17 @@ public class PrayersListActivity extends AppCompatActivity {
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                Intent intent = new Intent(getApplicationContext(), PrayerActivity.class);
+                intent = new Intent(getApplicationContext(), PrayerActivity.class);
+
                 if (newList != null && !newList.isEmpty()) {
                     intent.putExtra("id", newList.get(position));
                 } else {
                     intent.putExtra("id", prayers.get(position));
+                }
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
                 }
                 startActivity(intent);
 
@@ -139,7 +157,6 @@ public class PrayersListActivity extends AppCompatActivity {
 
         return true;
     }
-
 
 
     public String loadJSONFromAsset(String fileName) {
