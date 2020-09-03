@@ -40,6 +40,7 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/btn_plus"
             android:gravity="center"
+            app:autoSizeTextType="uniform"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
             android:shadowDy="0"
@@ -58,7 +59,7 @@
             android:background="@drawable/btn_plus"
             android:gravity="center"
             android:shadowColor="#A8A8A8"
-
+            app:autoSizeTextType="uniform"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"

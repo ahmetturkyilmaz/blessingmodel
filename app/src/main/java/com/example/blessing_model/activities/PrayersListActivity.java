@@ -42,7 +42,6 @@ public class PrayersListActivity extends AppCompatActivity {
     private PrayerAdapter adapter;
     private ArrayList<Prayer> prayers;
     private ArrayList<Prayer> newList = null;
-    private InterstitialAd mInterstitialAd;
     Intent intent;
     HashMap<Integer, String> prayerNames;
     HashMap<Integer, String> prayerMap;
@@ -54,11 +53,8 @@ public class PrayersListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_prayers_list);
 
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
-        //ca-app-pub-4701964854424760/2932349785
+
         prayerNames = null;
         prayerMap = null;
         prayerLatinMap = null;
@@ -87,11 +83,7 @@ public class PrayersListActivity extends AppCompatActivity {
                 } else {
                     intent.putExtra("id", prayers.get(position));
                 }
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    Log.d("TAG", "The interstitial wasn't loaded yet.");
-                }
+
                 startActivity(intent);
 
             }

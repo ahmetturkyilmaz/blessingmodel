@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -40,13 +41,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private AppCompatImageView imageView;
-    private Button button;
+    private Button prayersButton;
+    private Button namesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //Adds SDK initialize
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -91,32 +92,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         //continue or start prayers dhikr
-        button.findViewById(R.id.startDhikrPrayers);
+        prayersButton = findViewById(R.id.startDhikrPrayers);
         loadDataForPrayers();
         if (countForPrayers == null) {
-            button.setText("Start Dhikr for Prayers");
-            Intent prayerIntent = new Intent(this, PrayersListActivity.class);
-            startActivity(prayerIntent);
-        } else {
-            button.setText("Continue Dhikr for Prayers");
-            Intent continueDhikr = new Intent(this, ContinueDhikrForPrayers.class);
-            startActivity(continueDhikr);
-        }
+            prayersButton.setText(R.string.startDhikrPrayers);
+            prayersButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent prayerIntent = new Intent(getApplicationContext(), PrayersListActivity.class);
+                    startActivity(prayerIntent);
+                }
+            });
 
-        button.findViewById(R.id.startDihkrNames);
+        } else {
+            prayersButton.setText(R.string.continueDhikrPrayers);
+            prayersButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent continueDhikr = new Intent(getApplicationContext(), ContinueDhikrForPrayers.class);
+                    startActivity(continueDhikr);
+                }
+            });
+        }
+        namesButton = findViewById(R.id.startDihkrNames);
         loadDataForNames();
         if (countForPrayers == null) {
-            button.setText("Start Dhikr for Names");
-            Intent prayerIntent = new Intent(this, PrayersListActivity.class);
-            startActivity(prayerIntent);
+            namesButton.setText(R.string.startDhikrNames);
+            namesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent prayerIntent = new Intent(getApplicationContext(), NameListActivity.class);
+                    startActivity(prayerIntent);
+                }
+            });
+
         } else {
-            button.setText("Continue Dhikr for Names");
-            Intent continueDhikr = new Intent(this, ContinueDhikrForPrayers.class);
-            startActivity(continueDhikr);
+            namesButton.setText(R.string.continueDhikrNames);
+            namesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent continueDhikr = new Intent(getApplicationContext(), ContinueDhikrForNames.class);
+                    startActivity(continueDhikr);
+                }
+
+            });
+
         }
-
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

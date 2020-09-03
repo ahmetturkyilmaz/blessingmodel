@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 
 import com.example.blessing_model.pojo.Prayer;
 import com.example.blessing_model.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -30,6 +33,7 @@ public class PrayerActivity extends AppCompatActivity {
     Prayer prayer;
     SwitchCompat switchCompat;
     TextView changeLanguageText;
+    private InterstitialAd mInterstitialAd;
 
 
     @Override
@@ -37,6 +41,15 @@ public class PrayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prayer);
 
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        //ca-app-pub-4701964854424760/2932349785
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
 
         Toolbar toolbar = findViewById(R.id.prayerToolbar);
         setSupportActionBar(toolbar);

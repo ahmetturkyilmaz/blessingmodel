@@ -5,12 +5,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.blessing_model.R;
 import com.example.blessing_model.pojo.Names;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -25,20 +28,25 @@ public class NameActivity extends AppCompatActivity {
     Button zeroButton;
     TextView number;
     Names names;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name);
-        Toolbar toolbar = findViewById(R.id.nameToolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        counterButton = findViewById(R.id.counter);
-        nameItself = findViewById(R.id.nameItself);
-        explanation = findViewById(R.id.explanation);
-        zeroButton = findViewById(R.id.zero);
-        number = findViewById(R.id.numb);
-        names = (Names) getIntent().getSerializableExtra("idNames");
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        //ca-app-pub-4701964854424760/2932349785
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+        define();
+
 
         loadData();
         number.setText(countZiqir.get(Integer.parseInt(names.getId())));
@@ -65,6 +73,20 @@ public class NameActivity extends AppCompatActivity {
         });
     }
 
+    private void define() {
+        Toolbar toolbar = findViewById(R.id.nameToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        counterButton = findViewById(R.id.counter);
+        nameItself = findViewById(R.id.nameItself);
+        explanation = findViewById(R.id.explanation);
+        zeroButton = findViewById(R.id.zero);
+        number = findViewById(R.id.numb);
+        names = (Names) getIntent().getSerializableExtra("idNames");
+    }
+
     private void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("namesPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -84,7 +106,7 @@ public class NameActivity extends AppCompatActivity {
         countZiqir = gson.fromJson(json, type);
         if (countZiqir == null) {
             countZiqir = new HashMap<>();
-            for (int i = 1; i < 99; i++) {
+            for (int i = 1; i < 100; i++) {
                 countZiqir.put(i, "0");
             }
         }

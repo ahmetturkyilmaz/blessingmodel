@@ -54,15 +54,15 @@ public class ContinueDhikrForPrayers extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.continueDhikrPrayersListView);
 
-        toolbar = findViewById(R.id.prayersListToolbar);
+        toolbar = findViewById(R.id.continueDhikrPrayersToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        for (int i = 0; i < 114; i++) {
+        newList = new ArrayList<>();
+        for (int i =1; i < 115; i++) {
             String counter = countForPrayers.get(i);
             if (Integer.parseInt(counter) != 0) {
-                Prayer prayer = prayers.get(i);
+                Prayer prayer = prayers.get(i-1);
                 newList.add(prayer);
             }
         }

@@ -24,6 +24,10 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="zeroButton">Zero</string>
+    <string name="startDhikrPrayers">Start Dhikr for Prayers</string>
+    <string name="continueDhikrPrayers">Continue Dhikr for Prayers</string>
+    <string name="startDhikrNames">Start Dhikr for Names</string>
+    <string name="continueDhikrNames">Continue Dhikr for Names</string>
 
 
 </resources>
