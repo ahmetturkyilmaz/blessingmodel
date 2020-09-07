@@ -11,8 +11,12 @@
             android:id="@+id/nav_names"
             android:title="@string/names" />
         <item
+            android:id="@+id/nav_blessings"
+            android:title="@string/blessings"/>
+        <item
             android:id="@+id/nav_settings"
             android:title="@string/settings" />
+
 
 
     </group>

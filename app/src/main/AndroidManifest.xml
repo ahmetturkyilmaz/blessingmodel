@@ -15,19 +15,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.ContinueDhikrForNames"
-            android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity
-            android:name=".activities.ContinueDhikrForPrayers"
-            android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity
-            android:name=".activities.NameActivity"
-            android:parentActivityName=".activities.NameListActivity"
+            android:name=".activities.blessings.BlessingActivity"
+            android:parentActivityName=".activities.blessings.BlessingListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activities.NameListActivity"
+            android:name=".activities.blessings.BlessingListActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.blessings.AddBlessingActivity"
+            android:parentActivityName=".activities.blessings.BlessingListActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.names.ContinueDhikrForNames"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.prayers.ContinueDhikrForPrayers"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.names.NameActivity"
+            android:parentActivityName=".activities.names.NameListActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.names.NameListActivity"
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
@@ -35,11 +47,11 @@
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activities.PrayerActivity"
-            android:parentActivityName=".activities.PrayersListActivity"
+            android:name=".activities.prayers.PrayerActivity"
+            android:parentActivityName=".activities.prayers.PrayersListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activities.PrayersListActivity"
+            android:name=".activities.prayers.PrayersListActivity"
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity

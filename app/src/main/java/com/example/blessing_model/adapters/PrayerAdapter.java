@@ -18,7 +18,6 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerAdapter.PrayerView
     private ArrayList<Prayer> prayers;
 
 
-
     public static class PrayerViewHolder extends RecyclerView.ViewHolder {
         public TextView sureId;
         public TextView blessingName;
@@ -33,9 +32,17 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerAdapter.PrayerView
         }
     }
 
+    public PrayerAdapter() {
+        this.prayers = new ArrayList<>();
+    }
+
     public PrayerAdapter(ArrayList<Prayer> prayers) {
         this.prayers = prayers;
+    }
 
+    public void setPrayers(ArrayList<Prayer> prayers) {
+        this.prayers = prayers;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -60,7 +67,7 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerAdapter.PrayerView
     }
 
 
-    public void setFilter(ArrayList<Prayer> newList){
+    public void setFilter(ArrayList<Prayer> newList) {
         prayers = new ArrayList<>();
         prayers.addAll(newList);
         notifyDataSetChanged();

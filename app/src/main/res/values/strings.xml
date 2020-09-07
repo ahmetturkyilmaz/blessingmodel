@@ -16,18 +16,22 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_blessing">BlessingActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="zeroButton">Zero</string>
     <string name="startDhikrPrayers">Start Dhikr for Prayers</string>
     <string name="continueDhikrPrayers">Continue Dhikr for Prayers</string>
-    <string name="startDhikrNames">Start Dhikr for Names</string>
-    <string name="continueDhikrNames">Continue Dhikr for Names</string>
+    <string name="startDhikrNames">Start Dhikr for Asmaul Husna</string>
+    <string name="continueDhikrNames">Continue Dhikr for Asmaul Husna</string>
+    <string name="AddBlessingAddName">Add Name</string>
+    <string name="AddBlessingAddBlessingButton">Confirm</string>
+    <string name="addNameEmptyError">Name must be defined.</string>
+    <string name="blessings">Blessings</string>
+    <string name="addNameLengthError">Name cannot exceed 20 characters.</string>
+    <string name="blessingEmptyError">This field Cannot Be Empty</string>
+    <string name="blessingLengthError">This field cannot exceed 500 characters</string>
+    <string name="blessingExistsError">Blessing With this Name Already Exists</string>
+    <string name="fab_content_desc">Add blessings</string>
+    <string name="addBlessingButtonText">Add Blessing</string>
 
 
 </resources>

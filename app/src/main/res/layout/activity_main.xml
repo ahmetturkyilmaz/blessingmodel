@@ -10,34 +10,36 @@
     tools:context=".activities.MainActivity"
     tools:openDrawer="start">
 
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundColor"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/mainToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/toolbarColor"
-            android:elevation="4dp"
-            app:popupTheme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/CustomActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="Selamun Aleyküm 🌙" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mainImage"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@id/mainToolbar"
-            android:layout_marginTop="30dp" />
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="0.4" />
 
         <Button
             android:id="@+id/startDhikrPrayers"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_below="@id/mainImage"
-            android:autoSizeTextType="uniform"            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/btn_plus"
             android:gravity="center"
             android:shadowColor="#A8A8A8"
@@ -45,16 +47,16 @@
             android:shadowDy="0"
             android:shadowRadius="5"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/startDihkrNames"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_below="@id/startDhikrPrayers"
-            android:autoSizeTextType="uniform"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+
+            android:layout_marginEnd="16dp"
             android:background="@drawable/btn_plus"
             android:gravity="center"
             android:shadowColor="#A8A8A8"
@@ -63,13 +65,8 @@
             android:shadowDy="0"
             android:shadowRadius="5"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
-
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
+            android:textSize="28sp" />
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"

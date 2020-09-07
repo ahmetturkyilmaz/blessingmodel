@@ -1,4 +1,4 @@
-package com.example.blessing_model.activities;
+package com.example.blessing_model.activities.names;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;

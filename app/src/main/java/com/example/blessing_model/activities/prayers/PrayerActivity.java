@@ -1,4 +1,4 @@
-package com.example.blessing_model.activities;
+package com.example.blessing_model.activities.prayers;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,6 +34,8 @@ public class PrayerActivity extends AppCompatActivity {
     SwitchCompat switchCompat;
     TextView changeLanguageText;
     private InterstitialAd mInterstitialAd;
+    Button reduceTextSizeButton;
+    Button increaseTextSizeButton;
 
 
     @Override
@@ -51,7 +53,7 @@ public class PrayerActivity extends AppCompatActivity {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
         }
 
-        Toolbar toolbar = findViewById(R.id.prayerToolbar);
+        Toolbar toolbar = findViewById(R.id.blessingPrayerToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -97,17 +99,40 @@ public class PrayerActivity extends AppCompatActivity {
                 number.setText("0");
             }
         });
+
+        textSize();
     }
 
     private void define() {
         counterButton = findViewById(R.id.counterButton);
         sureItself = findViewById(R.id.sureItself);
-        zeroButton = findViewById(R.id.zeroButton);
+        zeroButton = findViewById(R.id.blessingZeroButton);
         number = findViewById(R.id.number);
         switchCompat = findViewById(R.id.changeAlphabet);
         changeLanguageText = findViewById(R.id.changeAlphabetText);
         prayer = (Prayer) getIntent().getSerializableExtra("id");
+        reduceTextSizeButton = findViewById(R.id.text_size_minus_button);
+        increaseTextSizeButton = findViewById(R.id.text_size_plus_button);
 
+    }
+
+    private void textSize() {
+        reduceTextSizeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sureItself.getTextSize() < 55. || sureItself.getTextSize() > 30.) {
+                    sureItself.setTextSize(sureItself.getTextSize() - 5);
+                }
+            }
+        });
+        increaseTextSizeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sureItself.getTextSize() < 55. || sureItself.getTextSize() > 30.) {
+                    sureItself.setTextSize(sureItself.getTextSize() + 5);
+                }
+            }
+        });
     }
 
     private void saveData() {

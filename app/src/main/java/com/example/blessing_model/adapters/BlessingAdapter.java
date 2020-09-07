@@ -50,7 +50,6 @@ public class BlessingAdapter extends RecyclerView.Adapter<BlessingAdapter.Blessi
         holder.Id.setText(blessing.getId());
         holder.blessingName.setText(blessing.getName());
         holder.sure.setText(blessing.getBlessing());
-        holder.sure.setText(blessing.getDescription());
     }
 
     @Override

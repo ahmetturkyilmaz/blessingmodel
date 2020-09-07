@@ -15,4 +15,9 @@
     <string name="dark_mode_setting">"الوضع المظلم "</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="zeroButton">صفر</string>
+    <string name="startDhikrPrayers">ابدأ الذكر للصلاة</string>
+    <string name="continueDhikrPrayers">تواصل الذكر للصلاة</string>
+    <string name="startDhikrNames">ابدأ الذكر لأسماعيل الحسنى</string>
+    <string name="continueDhikrNames">تابع الذكر لأسماعيل حسنة</string>
 </resources>

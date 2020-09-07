@@ -45,8 +45,7 @@
                 android:layout_height="400dp"
                 android:gravity="center"
                 android:textColor="@color/textColor"
-                android:textSize="100sp"
-                />
+                android:textSize="100sp" />
 
             <TextView
                 android:id="@+id/explanation"

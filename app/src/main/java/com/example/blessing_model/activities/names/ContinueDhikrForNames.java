@@ -1,4 +1,4 @@
-package com.example.blessing_model.activities;
+package com.example.blessing_model.activities.names;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.blessing_model.R;
+import com.example.blessing_model.activities.names.NameActivity;
 import com.example.blessing_model.adapters.NamesAdapter;
 import com.example.blessing_model.pojo.Names;
 import com.example.blessing_model.util.ItemClickSupport;

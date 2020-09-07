@@ -1,11 +1,12 @@
 package com.example.blessing_model.pojo;
 
-public class Blessing {
+import java.io.Serializable;
+
+public class Blessing implements Serializable {
     private String id;
     private String name;
     private String blessing;
-    private String description;
-
+    private String counter;
 
     public String getId() {
         return id;
@@ -31,11 +32,11 @@ public class Blessing {
         this.blessing = blessing;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCounter() {
+        return counter;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCounter(String counter) {
+        this.counter = counter;
     }
 }

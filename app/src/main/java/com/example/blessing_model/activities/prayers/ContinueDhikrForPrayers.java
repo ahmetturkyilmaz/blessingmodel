@@ -1,4 +1,4 @@
-package com.example.blessing_model.activities;
+package com.example.blessing_model.activities.prayers;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.blessing_model.R;
+import com.example.blessing_model.activities.prayers.PrayerActivity;
 import com.example.blessing_model.adapters.PrayerAdapter;
 import com.example.blessing_model.pojo.Prayer;
 import com.example.blessing_model.util.ItemClickSupport;

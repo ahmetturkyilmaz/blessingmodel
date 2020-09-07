@@ -1,6 +1,7 @@
 package com.example.blessing_model.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +21,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.blessing_model.R;
+import com.example.blessing_model.activities.blessings.BlessingListActivity;
+import com.example.blessing_model.activities.names.ContinueDhikrForNames;
+import com.example.blessing_model.activities.names.NameListActivity;
+import com.example.blessing_model.activities.prayers.ContinueDhikrForPrayers;
+import com.example.blessing_model.activities.prayers.PrayersListActivity;
 import com.example.blessing_model.util.LocaleHelper;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -36,19 +42,21 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     HashMap<Integer, String> countForPrayers;
     HashMap<Integer, String> countForNames;
-
-
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private AppCompatImageView imageView;
     private Button prayersButton;
     private Button namesButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Adds SDK initialize
+        loadDataForNames();
+        loadDataForPrayers();
+
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -83,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.mainToolbar);
         setSupportActionBar(toolbar);
 
+
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
@@ -93,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //continue or start prayers dhikr
         prayersButton = findViewById(R.id.startDhikrPrayers);
-        loadDataForPrayers();
         if (countForPrayers == null) {
             prayersButton.setText(R.string.startDhikrPrayers);
             prayersButton.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             });
         }
         namesButton = findViewById(R.id.startDihkrNames);
-        loadDataForNames();
         if (countForPrayers == null) {
             namesButton.setText(R.string.startDhikrNames);
             namesButton.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +157,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_names:
                 Intent nameListIntent = new Intent(this, NameListActivity.class);
                 startActivity(nameListIntent);
+                break;
+            case R.id.nav_blessings:
+                Intent blessingListIntent = new Intent(this, BlessingListActivity.class);
+                startActivity(blessingListIntent);
                 break;
             case R.id.nav_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
