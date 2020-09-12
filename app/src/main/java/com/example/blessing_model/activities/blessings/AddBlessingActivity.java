@@ -22,7 +22,9 @@ public class AddBlessingActivity extends AppCompatActivity {
     private TextInputLayout addNameLayout;
     private TextInputLayout addBlessingLayout;
     private Button button;
-    HashMap<String, Blessing> blessings;
+    private HashMap<String, Blessing> blessings;
+    private Blessing editableBlessing;
+    private String blessingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,12 @@ public class AddBlessingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_blessing);
         define();
         loadDataForBlessings();
+        if (editableBlessing != null) {
+            blessingName = editableBlessing.getName();
+            addNameLayout.getEditText().setText(blessingName);
+            addBlessingLayout.getEditText().setText(editableBlessing.getBlessing());
 
+        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +89,7 @@ public class AddBlessingActivity extends AppCompatActivity {
                 return;
             }
         }
+
         String blessingName = addNameLayout.getEditText().getText().toString();
         String blessingItself = addBlessingLayout.getEditText().getText().toString();
         Blessing blessing = new Blessing();
@@ -89,7 +97,9 @@ public class AddBlessingActivity extends AppCompatActivity {
         blessing.setBlessing(blessingItself);
         blessing.setCounter("0");
         blessings.put(blessing.getName(), blessing);
-
+        if (editableBlessing != null) {
+            blessings.remove(blessingName);
+        }
         saveData();
         Intent intent = new Intent(this, BlessingActivity.class);
         startActivity(intent);
@@ -119,6 +129,7 @@ public class AddBlessingActivity extends AppCompatActivity {
         addNameLayout = findViewById(R.id.addBlessingAddNameLayout);
         addBlessingLayout = findViewById(R.id.addBlessingAddBlessingLayout);
         button = findViewById(R.id.addBlessingButton);
+        editableBlessing = (Blessing) getIntent().getSerializableExtra("editableBlessing");
     }
 
 }

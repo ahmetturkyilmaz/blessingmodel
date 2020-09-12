@@ -32,6 +32,7 @@
     <string name="blessingExistsError">Blessing With this Name Already Exists</string>
     <string name="fab_content_desc">Add blessings</string>
     <string name="addBlessingButtonText">Add Blessing</string>
+    <string name="editBlessingMenuItem">Edit Blessing</string>
 
 
 </resources>
