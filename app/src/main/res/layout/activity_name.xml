@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundColor"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/nameToolbar"
@@ -20,65 +20,76 @@
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:popupTheme="@style/Theme.AppCompat.Light" />
 
-        <Button
-            android:id="@+id/zero"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nameToolbar"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/zeroButton" />
+            android:background="@color/secondaryBackgroundColor"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/zeroButton" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearName"
-            android:layout_width="400dp"
-            android:layout_height="500dp"
-            android:layout_below="@id/zero"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@color/backgroundColor"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp">
 
             <TextView
                 android:id="@+id/nameItself"
-                android:layout_width="400dp"
-                android:layout_height="400dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/textColor"
                 android:textSize="100sp" />
 
             <TextView
                 android:id="@+id/explanation"
-                android:layout_width="400dp"
-                android:layout_height="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/textColor" />
+                android:textColor="@color/textColor"
+                android:textSize="100sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/numb"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/linearName"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/textColor"
-            android:textSize="40sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBackgroundColor"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
-        <Button
-            android:id="@+id/counter"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/numb"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/btn_plus"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            android:text="+1"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/numb"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/textColor"
+                android:textSize="40sp" />
 
-
+            <Button
+                android:id="@+id/counter"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btn_plus"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="+1"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+        </RelativeLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -83,13 +83,12 @@ public class AddBlessingActivity extends AppCompatActivity {
         if (!validateName() | !validateBlessing()) {
             return;
         }
-        for (String blessingName : blessings.keySet()) {
-            if (blessingName.toLowerCase().equals(addNameLayout.getEditText().getText().toString().toLowerCase())) {
+        if (editableBlessing == null) {
+            if (ifSameName()) {
                 Toast.makeText(this, getText(R.string.blessingExistsError), Toast.LENGTH_LONG).show();
                 return;
             }
         }
-
         String blessingName = addNameLayout.getEditText().getText().toString();
         String blessingItself = addBlessingLayout.getEditText().getText().toString();
         Blessing blessing = new Blessing();
@@ -98,11 +97,22 @@ public class AddBlessingActivity extends AppCompatActivity {
         blessing.setCounter("0");
         blessings.put(blessing.getName(), blessing);
         if (editableBlessing != null) {
-            blessings.remove(blessingName);
+            if (!ifSameName()){
+                blessings.remove(blessingName);
+            }
         }
         saveData();
-        Intent intent = new Intent(this, BlessingActivity.class);
+        Intent intent = new Intent(this, BlessingListActivity.class);
         startActivity(intent);
+    }
+
+    private boolean ifSameName() {
+        for (String blessingName : blessings.keySet()) {
+            if (blessingName.toLowerCase().equals(addNameLayout.getEditText().getText().toString().toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void saveData() {

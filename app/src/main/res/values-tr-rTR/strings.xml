@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">blessing-model</string>
+    <string name="app_name">Kuran ve Zikir</string>
     <string name="search">Ara</string>
     <string name="action_settings">Ayarlar</string>
     <string name="prayers">Sureler</string>
@@ -20,4 +20,7 @@
     <string name="startDhikrNames">Esmaül Hüsna İçin Zikre Başla</string>
     <string name="continueDhikrNames">Esmaül Hüsna İçin Zikre Devam Et</string>
     <string name="zeroButton">Sıfırla</string>
+    <string name="AddBlessingAddName">İsim Ekle...</string>
+    <string name="AddBlessingAddBlessingButton">Dua ekle...</string>
+    <string name="addNameEmptyError">İsim alanı boş bırakılamaz.</string>
 </resources>

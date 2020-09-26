@@ -1,8 +1,7 @@
 package com.example.blessing_model.pojo;
 
 import java.io.Serializable;
-
-
+import java.util.List;
 
 
 public class Prayer implements Serializable {
@@ -10,14 +9,17 @@ public class Prayer implements Serializable {
     private String prayerName;
     private String latinAlphabet;
     private String blessing;
+    private List<String> imageNumbs;
 
     public Prayer() {
     }
 
-    public Prayer(String sureId, String prayerName, String blessing) {
+    public Prayer(String sureId, String prayerName, String blessing, List<String> imageNumbs) {
         this.sureId = sureId;
         this.prayerName = prayerName;
         this.blessing = blessing;
+        this.imageNumbs = imageNumbs;
+
     }
 
     public Prayer(String sureId, String prayerName, String latinAlphabet, String blessing) {
@@ -25,6 +27,14 @@ public class Prayer implements Serializable {
         this.prayerName = prayerName;
         this.latinAlphabet = latinAlphabet;
         this.blessing = blessing;
+    }
+
+    public Prayer(String sureId, String prayerName, String latinAlphabet, String blessing, List<String> imageNumbs) {
+        this.sureId = sureId;
+        this.prayerName = prayerName;
+        this.latinAlphabet = latinAlphabet;
+        this.blessing = blessing;
+        this.imageNumbs = imageNumbs;
     }
 
     public String getSureId() {
@@ -57,5 +67,13 @@ public class Prayer implements Serializable {
 
     public void setLatinAlphabet(String latinAlphabet) {
         this.latinAlphabet = latinAlphabet;
+    }
+
+    public List<String> getImageNumbs() {
+        return imageNumbs;
+    }
+
+    public void setImageNumbs(List<String> imageNumbs) {
+        this.imageNumbs = imageNumbs;
     }
 }

@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 public class ContinueDhikrForPrayers extends AppCompatActivity {
@@ -40,6 +41,7 @@ public class ContinueDhikrForPrayers extends AppCompatActivity {
     RecyclerView recyclerView;
     Toolbar toolbar;
     Intent prayerIntent;
+    private List<String> imageNumbs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +61,10 @@ public class ContinueDhikrForPrayers extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         newList = new ArrayList<>();
-        for (int i =1; i < 115; i++) {
+        for (int i = 1; i < 115; i++) {
             String counter = countForPrayers.get(i);
             if (Integer.parseInt(counter) != 0) {
-                Prayer prayer = prayers.get(i-1);
+                Prayer prayer = prayers.get(i - 1);
                 newList.add(prayer);
             }
         }
@@ -97,12 +99,13 @@ public class ContinueDhikrForPrayers extends AppCompatActivity {
                 prayerMap = getPrayers("arab.json", "ar.muyassar");
                 prayerNames = getSurahNames("englishName");
             }
+            HashMap<String, List<String>> imageMap = fillImageNumbers(imageNumbs);
+
             for (int i = 0; i < 114; i++) {
                 if (prayerLatinMap != null) {
-                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerLatinMap.get(i + 1), prayerMap.get(i + 1)));
-
+                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerLatinMap.get(i + 1), prayerMap.get(i + 1), imageMap.get(String.valueOf(i + 1))));
                 } else {
-                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
+                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1), imageMap.get(String.valueOf(i + 1))));
                 }
             }
         }
@@ -131,17 +134,24 @@ public class ContinueDhikrForPrayers extends AppCompatActivity {
             JSONObject obj = new JSONObject(loadJSONFromAsset(fileName));
             JSONObject quran = obj.getJSONObject("quran");
             JSONObject publisher = quran.getJSONObject(translator);
+            int ayahCounter = 1;
+            imageNumbs = new ArrayList<>();
+
             for (int i = 1; i <= 6236; i++) {
                 JSONObject ayah = publisher.getJSONObject(String.valueOf(i));
                 Integer surahNumber = (Integer) ayah.get("surah");
                 String ayahItself = (String) ayah.get("verse");
+                StringBuilder stringBuilder = new StringBuilder();
                 if (!(surahMap.get(surahNumber) == null)) {
                     String newSurahString = surahMap.get(surahNumber).concat(" ").concat(ayahItself);
-
                     surahMap.put(surahNumber, newSurahString);
+                    ayahCounter++;
                 } else {
                     surahMap.put(surahNumber, ayahItself);
+                    ayahCounter = 1;
                 }
+                stringBuilder.append(surahNumber).append("_").append(ayahCounter).append(".").append("png");
+                imageNumbs.add(stringBuilder.toString());
             }
         } catch (JSONException ex) {
             ex.printStackTrace();
@@ -156,22 +166,61 @@ public class ContinueDhikrForPrayers extends AppCompatActivity {
             JSONObject obj = new JSONObject(loadJSONFromAsset(fileName));
             JSONObject quran = obj.getJSONObject("quran");
             JSONObject publisher = quran.getJSONObject(translator);
+
+            int ayahCounter = 1;
+            imageNumbs = new ArrayList<>();
+
             for (int i = 1; i <= 6236; i++) {
                 JSONObject ayah = publisher.getJSONObject(String.valueOf(i));
                 Integer surahNumber = (Integer) ayah.get("surah");
                 String ayahItself = (String) ayah.get(alphabet);
+
+
+                StringBuilder stringBuilder = new StringBuilder();
+
                 if (!(surahMap.get(surahNumber) == null)) {
                     String newSurahString = surahMap.get(surahNumber).concat(" ").concat(ayahItself);
 
                     surahMap.put(surahNumber, newSurahString);
+
+                    ayahCounter++;
+
                 } else {
                     surahMap.put(surahNumber, ayahItself);
+
+                    ayahCounter = 1;
                 }
+                stringBuilder.append(surahNumber).append("_").append(ayahCounter).append(".").append("png");
+                imageNumbs.add(stringBuilder.toString());
             }
         } catch (JSONException ex) {
             ex.printStackTrace();
         }
         return surahMap;
+    }
+
+    private HashMap<String, List<String>> fillImageNumbers(List<String> imageNumbers) {
+        HashMap<String, List<String>> surahNumbImageNumbMap = new HashMap<>();
+        ArrayList<String> newList = new ArrayList<>();
+        for (String numb : imageNumbers) {
+            StringBuilder stringBuilder = new StringBuilder(numb);
+            String surahNumb = stringBuilder.substring(0, 1);
+            if (!stringBuilder.substring(1, 2).equals("_")) {
+                surahNumb = stringBuilder.substring(0, 2);
+            }
+
+            if (stringBuilder.substring(3, 4).equals("_")) {
+                surahNumb = stringBuilder.substring(0, 3);
+            }
+            if (surahNumbImageNumbMap.get(surahNumb) == null) {
+                newList = new ArrayList<>();
+            }
+            newList.add(numb);
+            surahNumbImageNumbMap.put(surahNumb, newList);
+        }
+
+        return surahNumbImageNumbMap;
+
     }
 
     public HashMap<Integer, String> getSurahNames(String languages) {

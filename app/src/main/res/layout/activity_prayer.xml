@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/prayerActivityParentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
@@ -21,81 +22,106 @@
             app:popupTheme="@style/Theme.AppCompat.Light" />
 
         <LinearLayout
-            android:background="#f1f1f1"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBackgroundColor"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
             <LinearLayout
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/changeAlphabetText"
+                <Button
+                    android:id="@+id/changeAlphabetToPNGs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="Dil"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/change_language_shape"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/changeAlphabetToPNGs"/>
 
-                    android:textColor="@color/textColor" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    app:theme="@style/Color1SwitchStyle"
-                    android:id="@+id/changeAlphabet"
+                <Button
+                    android:id="@+id/changeAlphabetToLatin"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/change_language_shape"
+                    android:textColor="#FFFFFF"
+
+                    android:text="@string/changeAlphabetToLatin"/>
+
+                <Button
+                    android:id="@+id/changeAlphabetToMeanings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/change_language_shape"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/changeAlphabetToMeanings"/>
             </LinearLayout>
 
             <LinearLayout
-                android:gravity="end"
+                android:layout_marginLeft="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
                 <Button
-                    android:background="@drawable/btn_plus"
                     android:id="@+id/blessingZeroButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/btn_plus"
                     android:text="@string/zeroButton" />
             </LinearLayout>
 
         </LinearLayout>
 
 
-
         <ScrollView
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="16dp"
             android:id="@+id/blessingScrollSure"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/backgroundColor">
+            android:background="@color/backgroundColor"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp">
 
-            <TextView
-                android:textSize="18sp"
-                android:lineHeight="24sp"
-                android:id="@+id/sureItself"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textColor" />
+                android:orientation="vertical"
+                android:id="@+id/parenLinearLayout">
+
+                <TextView
+                    android:id="@+id/sureItself"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="24sp"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/prayerImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
         </ScrollView>
 
 
-
         <RelativeLayout
-            android:background="#f1f1f1"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBackgroundColor"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/text_size_plus_button"
@@ -147,11 +173,11 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:text="1"
-                android:layout_alignParentEnd="true"
                 android:id="@+id/number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="1"
                 android:textColor="@color/textColor"
                 android:textSize="30sp" />
         </RelativeLayout>

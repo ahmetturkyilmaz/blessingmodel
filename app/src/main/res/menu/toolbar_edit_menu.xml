@@ -7,4 +7,10 @@
         android:orderInCategory="1"
         android:title="@string/editBlessingMenuItem"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/deleteBlessingMenuItem"
+        android:icon="@drawable/ic_baseline_delete_24"
+        android:orderInCategory="2"
+        android:title="@string/deleteBlessingMenuItem"
+        app:showAsAction="ifRoom" />
 </menu>

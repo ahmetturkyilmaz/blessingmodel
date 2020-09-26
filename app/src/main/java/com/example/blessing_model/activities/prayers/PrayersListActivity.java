@@ -21,6 +21,7 @@ import com.example.blessing_model.util.ItemClickSupport;
 import com.example.blessing_model.pojo.Prayer;
 import com.example.blessing_model.adapters.PrayerAdapter;
 import com.example.blessing_model.R;
+import com.google.android.gms.common.util.NumberUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +31,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 
 public class PrayersListActivity extends AppCompatActivity {
@@ -42,18 +45,20 @@ public class PrayersListActivity extends AppCompatActivity {
     private PrayerAdapter adapter;
     private ArrayList<Prayer> prayers;
     private ArrayList<Prayer> newList = null;
-    Intent intent;
-    HashMap<Integer, String> prayerNames;
-    HashMap<Integer, String> prayerMap;
-    HashMap<Integer, String> prayerLatinMap;
+    private Intent intent;
+    private HashMap<Integer, String> prayerNames;
+    private HashMap<Integer, String> prayerMap;
+    private HashMap<Integer, String> prayerLatinMap;
+    private List<String> imageNumbs;
 
-    Handler handler = new Handler();
-    Runnable runnable = new Runnable() {
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
         @Override
         public void run() {
             defineMapsForLanguages();
         }
     };
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -109,11 +114,14 @@ public class PrayersListActivity extends AppCompatActivity {
                 prayerMap = getPrayers("arab.json", "ar.muyassar");
                 prayerNames = getSurahNames("englishName");
             }
+
+            HashMap<String, List<String>> imageMap = fillImageNumbers(imageNumbs);
+
             for (int i = 0; i < 114; i++) {
                 if (prayerLatinMap != null) {
-                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerLatinMap.get(i + 1), prayerMap.get(i + 1)));
+                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerLatinMap.get(i + 1), prayerMap.get(i + 1), imageMap.get(String.valueOf(i + 1))));
                 } else {
-                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1)));
+                    prayers.add(new Prayer(String.valueOf(i + 1), prayerNames.get(i), prayerMap.get(i + 1), imageMap.get(String.valueOf(i + 1))));
                 }
             }
             adapter.setPrayers(prayers);
@@ -186,17 +194,24 @@ public class PrayersListActivity extends AppCompatActivity {
             JSONObject obj = new JSONObject(loadJSONFromAsset(fileName));
             JSONObject quran = obj.getJSONObject("quran");
             JSONObject publisher = quran.getJSONObject(translator);
+            int ayahCounter = 1;
+            imageNumbs = new ArrayList<>();
+
             for (int i = 1; i <= 6236; i++) {
                 JSONObject ayah = publisher.getJSONObject(String.valueOf(i));
                 Integer surahNumber = (Integer) ayah.get("surah");
                 String ayahItself = (String) ayah.get("verse");
+                StringBuilder stringBuilder = new StringBuilder();
                 if (!(surahMap.get(surahNumber) == null)) {
                     String newSurahString = surahMap.get(surahNumber).concat(" ").concat(ayahItself);
-
                     surahMap.put(surahNumber, newSurahString);
+                    ayahCounter++;
                 } else {
                     surahMap.put(surahNumber, ayahItself);
+                    ayahCounter = 1;
                 }
+                stringBuilder.append(surahNumber).append("_").append(ayahCounter).append(".").append("png");
+                imageNumbs.add(stringBuilder.toString());
             }
         } catch (JSONException ex) {
             ex.printStackTrace();
@@ -211,22 +226,61 @@ public class PrayersListActivity extends AppCompatActivity {
             JSONObject obj = new JSONObject(loadJSONFromAsset(fileName));
             JSONObject quran = obj.getJSONObject("quran");
             JSONObject publisher = quran.getJSONObject(translator);
+
+            int ayahCounter = 1;
+            imageNumbs = new ArrayList<>();
+
             for (int i = 1; i <= 6236; i++) {
                 JSONObject ayah = publisher.getJSONObject(String.valueOf(i));
                 Integer surahNumber = (Integer) ayah.get("surah");
                 String ayahItself = (String) ayah.get(alphabet);
+
+
+                StringBuilder stringBuilder = new StringBuilder();
+
                 if (!(surahMap.get(surahNumber) == null)) {
                     String newSurahString = surahMap.get(surahNumber).concat(" ").concat(ayahItself);
 
                     surahMap.put(surahNumber, newSurahString);
+
+                    ayahCounter++;
+
                 } else {
                     surahMap.put(surahNumber, ayahItself);
+
+                    ayahCounter = 1;
                 }
+                stringBuilder.append(surahNumber).append("_").append(ayahCounter).append(".").append("png");
+                imageNumbs.add(stringBuilder.toString());
             }
         } catch (JSONException ex) {
             ex.printStackTrace();
         }
         return surahMap;
+    }
+
+    private HashMap<String, List<String>> fillImageNumbers(List<String> imageNumbers) {
+        HashMap<String, List<String>> surahNumbImageNumbMap = new HashMap<>();
+        ArrayList<String> newList = new ArrayList<>();
+        for (String numb : imageNumbers) {
+            StringBuilder stringBuilder = new StringBuilder(numb);
+            String surahNumb = stringBuilder.substring(0, 1);
+            if (!stringBuilder.substring(1, 2).equals("_")) {
+                surahNumb = stringBuilder.substring(0, 2);
+            }
+
+            if (stringBuilder.substring(3, 4).equals("_")) {
+                surahNumb = stringBuilder.substring(0, 3);
+            }
+            if (surahNumbImageNumbMap.get(surahNumb) == null) {
+                newList = new ArrayList<>();
+            }
+            newList.add(numb);
+            surahNumbImageNumbMap.put(surahNumb, newList);
+        }
+
+        return surahNumbImageNumbMap;
+
     }
 
     public HashMap<Integer, String> getSurahNames(String languages) {

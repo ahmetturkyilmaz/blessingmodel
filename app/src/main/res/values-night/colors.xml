@@ -2,9 +2,11 @@
 <resources>
     <color name="backgroundColor">#000000</color>
     <color name="drawerBackgroundColor">#232121</color>
+    <color name="secondaryBackgroundColor">#292929</color>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="toolbarColor">#233C12</color>
     <color name="textColor">#FFFFFF</color>
+    <color name="textColorHint">#BDBDBD</color>
 </resources>

@@ -20,4 +20,7 @@
     <string name="continueDhikrPrayers">تواصل الذكر للصلاة</string>
     <string name="startDhikrNames">ابدأ الذكر لأسماعيل الحسنى</string>
     <string name="continueDhikrNames">تابع الذكر لأسماعيل حسنة</string>
+    <string name="AddBlessingAddName">اضف اسما</string>
+    <string name="AddBlessingAddBlessingButton">أضف نعمة</string>
+    <string name="addNameEmptyError">يجب تحديد الاسم</string>
 </resources>

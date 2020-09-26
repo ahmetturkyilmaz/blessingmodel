@@ -94,6 +94,12 @@ public class BlessingActivity extends AppCompatActivity {
             intent.putExtra("editableBlessing", blessing);
             startActivity(intent);
         }
+        if (item.getItemId() == R.id.deleteBlessingMenuItem) {
+            blessings.remove(blessing.getName());
+            saveData();
+            Intent intent = new Intent(this, BlessingListActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 

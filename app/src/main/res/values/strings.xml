@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">blessing-model</string>
+    <string name="app_name">Quran And Dhikr</string>
     <string name="search">Search</string>
     <string name="action_settings">Settings</string>
     <string name="prayers">Prayers</string>
@@ -33,6 +33,11 @@
     <string name="fab_content_desc">Add blessings</string>
     <string name="addBlessingButtonText">Add Blessing</string>
     <string name="editBlessingMenuItem">Edit Blessing</string>
+    <string name="deleteBlessingMenuItem">Delete Blessing</string>
+    <string name="AddBlessingAddBlessing">Add Blessing...</string>
+    <string name="changeAlphabetToPNGs">QURAN</string>
+    <string name="changeAlphabetToMeanings">MEANİNG</string>
+    <string name="changeAlphabetToLatin">LATIN</string>
 
 
 </resources>

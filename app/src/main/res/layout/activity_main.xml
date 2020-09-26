@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/CustomActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Selamun Aleyküm 🌙" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/mainImage"
@@ -52,7 +52,7 @@
         <Button
             android:id="@+id/startDihkrNames"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
 
