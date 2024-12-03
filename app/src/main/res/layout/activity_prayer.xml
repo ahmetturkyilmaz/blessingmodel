@@ -1,74 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/prayerActivityParentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/backgroundColor">
+    android:background="@color/backgroundColor">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundColor"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/prayerToolbar"
+            android:id="@+id/blessingPrayerToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/toolbarColor"
+            android:background="@color/toolbarColor"
             android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:navigationIcon="?attr/homeAsUpIndicator"
             app:popupTheme="@style/Theme.AppCompat.Light" />
 
-        <Button
-            android:id="@+id/zeroButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/prayerToolbar"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/zeroButton" />
+            android:background="@color/secondaryBackgroundColor"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
-        <ScrollView
-            android:id="@+id/scrollSure"
-            android:layout_width="400dp"
-            android:layout_height="500dp"
-            android:layout_below="@id/zeroButton"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="?attr/counterTextColor">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/sureItself"
+                <Button
+                    android:id="@+id/changeAlphabetToPNGs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/change_language_shape"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/changeAlphabetToPNGs"/>
+
+                <Button
+                    android:id="@+id/changeAlphabetToLatin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/change_language_shape"
+                    android:textColor="#FFFFFF"
+
+                    android:text="@string/changeAlphabetToLatin"/>
+
+                <Button
+                    android:id="@+id/changeAlphabetToMeanings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/change_language_shape"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/changeAlphabetToMeanings"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/textColor" />
+                android:gravity="end">
+
+                <Button
+                    android:id="@+id/blessingZeroButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_plus"
+                    android:text="@string/zeroButton" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:id="@+id/blessingScrollSure"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/backgroundColor"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/parenLinearLayout">
+
+                <TextView
+                    android:id="@+id/sureItself"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="24sp"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/prayerImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
         </ScrollView>
 
-        <TextView
-            android:id="@+id/number"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/scrollSure"
-            android:textSize="40sp"
-            android:layout_centerHorizontal="true"
-            android:textColor="?attr/textColor" />
-        <Button
-            android:id="@+id/counterButton"
-            android:text="+1"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:layout_below="@+id/number"
-            android:layout_centerHorizontal="true"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:background="@drawable/btn_plus"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            />
-    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBackgroundColor"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/text_size_plus_button"
+
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/text_size_button"
+                    android:shadowColor="#4232A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="+"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/text_size_minus_button"
+
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+
+                    android:background="@drawable/text_size_button"
+                    android:shadowColor="#4232A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="-"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/counterButton"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btn_plus"
+                android:gravity="center"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="+1"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="1"
+                android:textColor="@color/textColor"
+                android:textSize="30sp" />
+        </RelativeLayout>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

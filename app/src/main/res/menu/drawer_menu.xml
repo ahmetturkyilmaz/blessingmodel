@@ -5,13 +5,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_sure"
-            android:icon="@drawable/ic_import_contacts_black_24dp"
+            android:icon="@drawable/ic_baseline_menu_book_24"
             android:title="@string/prayers" />
         <item
-            android:id="@+id/nav_dua"
+            android:id="@+id/nav_names"
+            android:icon="@drawable/ic_baseline_menu_book_24"
+            android:title="@string/names" />
+        <item
+            android:id="@+id/nav_blessings"
+            android:icon="@drawable/ic_baseline_edit_24"
             android:title="@string/blessings" />
         <item
             android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/settings" />
 
 
